@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
     name: "Vaper 1",
     description: "Descripción del vaper 1.",
     stock: 1,
-    brand: "Naruto",
+    brand: "Marca",
     category: "ropa",
     active: false,
     quantity: 1
@@ -32,7 +32,7 @@ export class ProductListComponent implements OnInit {
       name: "Vaper 2",
       description: "Este es el que usa nicky yam",
       stock: 1,
-      brand: "Attack on titan (Shingeki no kyojin)",
+      brand: "Marca",
       category: "ropa",
       active: false,
       quantity: 1
@@ -41,10 +41,10 @@ export class ProductListComponent implements OnInit {
       id: 3,
       photoUrl: "../../../../../../assets/img/vaper3.jpeg",
       price: 1,
-      name: "Producto",
+      name: "Vaper 3",
       description: "Zarpado vaper con 2 pantallas",
       stock: 1,
-      brand: "",
+      brand: "Marca",
       category: "otros",
       active: false,
       quantity: 1
