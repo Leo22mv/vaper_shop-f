@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #343a40;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(assets/img/bg.png);
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: right 50% bottom 15%;
+}
