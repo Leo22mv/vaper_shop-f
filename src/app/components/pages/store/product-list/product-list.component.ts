@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
     name: "Vaper 1",
     description: "Descripción del vaper 1.",
     stock: 1,
-    brand: "Marca",
+    brand: "HQD",
     category: "ropa",
     active: false,
     quantity: 1
@@ -44,7 +44,7 @@ export class ProductListComponent implements OnInit {
       name: "Vaper 3",
       description: "Zarpado vaper con 2 pantallas",
       stock: 1,
-      brand: "Marca",
+      brand: "MTRX",
       category: "otros",
       active: false,
       quantity: 1
