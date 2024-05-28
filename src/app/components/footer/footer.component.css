@@ -1,0 +1,16 @@
+.navbar {
+    margin-top: 20px;
+}
+#contenedor {
+    display: flex;
+    justify-content: space-between;
+}
+.mail {
+    font-size: small;
+}
+a {
+    color: white;
+}
+a:hover {
+    color: gray;
+}
