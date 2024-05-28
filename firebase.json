@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/vaper_shop-f",
     "ignore": [
       "firebase.json",
       "**/.*",
