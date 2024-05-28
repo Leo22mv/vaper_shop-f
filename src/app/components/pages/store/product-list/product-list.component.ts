@@ -9,10 +9,10 @@ import { ProductInterface } from '../../../../../app/models/product'
 })
 export class ProductListComponent implements OnInit {
 
-  filtroActivo: boolean = false;
+  activeFilter: boolean = false;
 
-  // listaProductosTotal: any[] = [];
-  listaProductosTotal: any = [
+  // totalProductList: any[] = [];
+  totalProductList: any = [
     {
     id: 1,
     photoUrl: "../../../../../../assets/img/vaper1.jpeg",
@@ -51,11 +51,11 @@ export class ProductListComponent implements OnInit {
     }
   ]
 
-  listaProductos: any[] = this.listaProductosTotal
+  Productolist: any[] = this.totalProductList
 
-  listaProductosOrdenada: any[] = this.listaProductos
+  orderedProductList: any[] = this.Productolist
 
-  agregado: boolean = false;
+  added: boolean = false;
 
   loading: boolean = false;
   error: boolean = false;
@@ -63,18 +63,18 @@ export class ProductListComponent implements OnInit {
   // params: string = "Todas";
   // params2: string | undefined;
 
-  @Input() ordenActual: string | undefined;
-  @Input() categoriaActual: string | undefined;
+  @Input() currentOrder: string | undefined;
+  @Input() currentCategory: string | undefined;
 
-  // constructor(private route: ActivatedRoute, private prodServ: ProductosService, private listaProdService: ListaProductosService, private http: HttpClient) {
+  // constructor(private route: ActivatedRoute, private prodServ: ProductosService, private listaProdService: ProductosServicList, private http: HttpClient) {
   constructor(private route: ActivatedRoute) {
     // this.getProductos();
-    this.actualizarCategoria();
+    this.updateCategory();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     // this.getProductos();
-    this.actualizarCategoria();
+    this.updateCategory();
     this.ordenar();
   }
 
@@ -82,7 +82,7 @@ export class ProductListComponent implements OnInit {
 
     // this.loading = true
 
-    this.filtroActivo = false;
+    this.activeFilter = false;
 
     // this.route.queryParams.subscribe(params => this.params = params['categoria']);
     // this.route.queryParams.subscribe(params => this.params2 = params['serie']);
@@ -90,23 +90,23 @@ export class ProductListComponent implements OnInit {
     // this.getProductos();
 
     // this.http.get<any[]>("http://localhost:8080/productos").subscribe(data => {
-    //   this.listaProductosTotal = data as IProducto[];
+    //   this.totalProductList = data as IProducto[];
     // });
 
-    // this.listaProductosOrdenada = this.listaProductosTotal;
+    // this.orderedProductList = this.totalProductList;
 
   }
 
   getProductos() {
     // this.prodServ.obtener().subscribe((res: any[])=> {
     //   this.loading = false;
-    //   this.listaProductosTotal = res;
-    //   this.listaProductosOrdenada = res;
+    //   this.totalProductList = res;
+    //   this.orderedProductList = res;
     // })
 
     // this.prodServ.obtener().subscribe(
     //   data => {
-    //     this.listaProductosTotal = data[0];
+    //     this.totalProductList = data[0];
     //     // console.log(data)
     //   },
     //   error => {
@@ -122,10 +122,10 @@ export class ProductListComponent implements OnInit {
   }
 
   ordenar() {
-    switch (this.ordenActual) {
+    switch (this.currentOrder) {
       case "precioAscendente":
-        this.listaProductos = this.listaProductosOrdenada
-        this.listaProductosOrdenada = this.listaProductos.sort((a,b) => {
+        this.Productolist = this.orderedProductList
+        this.orderedProductList = this.Productolist.sort((a,b) => {
         if (a.precio < b.precio) {
           return -1;
         } else if (a.precio > b.precio){
@@ -136,8 +136,8 @@ export class ProductListComponent implements OnInit {
       break
 
       case "precioDescendente":
-        this.listaProductos = this.listaProductosOrdenada
-        this.listaProductosOrdenada = this.listaProductos.sort((a,b) => {
+        this.Productolist = this.orderedProductList
+        this.orderedProductList = this.Productolist.sort((a,b) => {
           if (a.precio < b.precio) {
             return 1;
           } else if (a.precio > b.precio){
@@ -147,27 +147,27 @@ export class ProductListComponent implements OnInit {
         })
       break
     }
-    this.filtroActivo = true;
+    this.activeFilter = true;
   }
 
-  actualizarCategoria() {
-    switch (this.categoriaActual) {
+  updateCategory() {
+    switch (this.currentCategory) {
       case "todas":
-        this.listaProductos = this.listaProductosTotal;
-        this.listaProductosOrdenada = this.listaProductos
+        this.Productolist = this.totalProductList;
+        this.orderedProductList = this.Productolist
       break
 
       case "ropa":
-        this.listaProductos = this.listaProductosTotal.filter((producto: { category: string; }) => producto.category=="ropa")
-        this.listaProductosOrdenada = this.listaProductos
+        this.Productolist = this.totalProductList.filter((producto: { category: string; }) => producto.category=="ropa")
+        this.orderedProductList = this.Productolist
       break
 
       case "otros":
-        this.listaProductos = this.listaProductosTotal.filter((producto: { category: string; }) => producto.category=="otros")
-        this.listaProductosOrdenada = this.listaProductos
+        this.Productolist = this.totalProductList.filter((producto: { category: string; }) => producto.category=="otros")
+        this.orderedProductList = this.Productolist
       break
     }
-    this.filtroActivo = true;
+    this.activeFilter = true;
   }
 
 }

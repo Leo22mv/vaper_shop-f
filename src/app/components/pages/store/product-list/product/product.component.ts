@@ -11,7 +11,7 @@ export class ProductComponent implements OnInit {
 
   @Output() evento: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  botonActivo: string = "btn btn-outline-light btn-lg"
+  activeButton: string = "btn btn-outline-light btn-lg"
 
   @Input() product: ProductInterface = {
     id: 0,
@@ -33,8 +33,8 @@ export class ProductComponent implements OnInit {
     // console.log(this.producto)
   }
 
-  agregarAlCarrito(producto: ProductInterface) {
-    let estaba = false;
+  addToChart(producto: ProductInterface) {
+    // let estaba = false;
     // if (localStorage.getItem("token")) {
     //   if(!producto.quantity) {
     //     producto.quantity = 1;
@@ -57,7 +57,7 @@ export class ProductComponent implements OnInit {
     // }
     // this.prserv.activo = producto.id
 
-    this.actualizarBoton()
+    this.updateButton()
 
     // this.producto.activo = true
 
@@ -71,16 +71,10 @@ export class ProductComponent implements OnInit {
 
   }
 
-  actualizarBoton() {
-    // if (this.producto.activo) {
-    //   this.botonActivo = "btn btn-outline-light btn-lg"
-    // } else {
-    //   this.botonActivo = "btn btn-outline-success btn-lg"
-    // }
-
-    this.botonActivo = "btn btn-outline-success btn-lg"
+  updateButton() {
+    this.activeButton = "btn btn-outline-success btn-lg"
     setTimeout(() => {
-      this.botonActivo = "btn btn-outline-light btn-lg"
+      this.activeButton = "btn btn-outline-light btn-lg"
     }, 500);
   }
 

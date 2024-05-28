@@ -15,10 +15,10 @@
             <input type="number">
           </div> -->
           <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
-          <label *ngIf="product.stock>0" for="cant">Cantidad:</label>
-          <!-- <input type="number" value="1" min="1" *ngIf="product.stock>0" id="cant" [(ngModel)]="product.quantity"> -->
-          <input type="number" value="1" min="1" *ngIf="product.stock>0" id="cant">
-          <button *ngIf="product.stock>0" [ngClass]="botonActivo" (click)="agregarAlCarrito(product)">Agregar al carrito</button>
+          <label *ngIf="product.stock>0" for="quantity">Cantidad:</label>
+          <!-- <input type="number" value="1" min="1" *ngIf="product.stock>0" id="quantity" [(ngModel)]="product.quantity"> -->
+          <input type="number" value="1" min="1" *ngIf="product.stock>0" id="quantity">
+          <button *ngIf="product.stock>0" [ngClass]="activeButton" (click)="addToChart(product)">Agregar al carrito</button>
           <small *ngIf="product.stock==0" class="text-muted">No hay stock disponible</small>
         </div>
   

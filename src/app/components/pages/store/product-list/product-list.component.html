@@ -13,9 +13,9 @@
         </div> -->
         
         <!-- <div *ngIf="filtroActivo"> -->
-        <div *ngFor="let product of listaProductosOrdenada">
+        <div *ngFor="let product of orderedProductList">
           <app-product [product]="product"></app-product>
-          <div *ngIf="product.activo">
+          <div *ngIf="product.active">
             <p class="p">Agregado correctamente</p>
             <!-- <p>Ir al carrito</p> -->
           </div>
